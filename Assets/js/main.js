@@ -2,8 +2,9 @@ Array.prototype.random = function () {
   return this[Math.floor((Math.random()*this.length))];
 }
 
-tyletypes = ['grass', 'water', 'genaric']; 
+tyletypes = ['grass', 'water', 'sand']; 
 map = [];
+uSlectedType = "none";
 
 function tile(type){
     this.type = type;
@@ -23,12 +24,30 @@ function startMapHTML (map){
     for(var i = 0; i <= map.length-1; i++){
         elem += "<div class='row' id='"+"row_"+i+"'>";
         for(var j = 0; j <= map[i].length-1; j++){
-            elem += "<div class='tile "+ map[i][j].type +"' id='"+"col_"+(j)+"'></div>";
+            elem += "<div onclick='changeType(event, "+i+","+j+")' class='tile "+ map[i][j].type +"' id='"+i+","+j+"'></div>";
         };
         elem +="</div>"
     };
     return elem;
 };
+
+function getType (type){
+    uSlectedType = type;
+    console.log(type, " is slected")
+};
+
+function changeType (e, x, y){
+    map[x][y].type = uSlectedType;
+    console.log(""+x+""+y+"");
+    e.target.className = "tile "+uSlectedType+"";
+
+};
+function download() {
+  var a = document.getElementById("Dl");
+  var file = new Blob([JSON.stringify(map)], {type: "text/plain"});
+  a.href = URL.createObjectURL(file);
+  a.download = "map";
+}
 
 
 genGinaricMap(10,10);
