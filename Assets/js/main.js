@@ -31,9 +31,13 @@ function startMapHTML (map){
     return elem;
 };
 
-function getType (type){
+function getType (e, type){
+    var x = document.getElementsByClassName("active")[0].classList;
+    console.log(x);
+    x.remove("active");
     uSlectedType = type;
-    console.log(type, " is slected")
+    console.log(type, " is slected");
+    e.target.className = "tile active";
 };
 
 function changeType (e, x, y){

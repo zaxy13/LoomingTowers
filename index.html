@@ -9,10 +9,10 @@
         <div id="map" class="map">
         </div>
         <div class="row" id="toolPalet">
-            <div class="tile" onclick="getType('grass')">Grass</div>
-            <div class="tile" onclick="getType('water')">Water</div>
-            <div class="tile" onclick="getType('sand')">Sand</div>
-            <div class="tile" onclick="getType('none')">None</div>
+            <div class="tile" onclick="getType(event, 'grass')">Grass</div>
+            <div class="tile" onclick="getType(event, 'water')">Water</div>
+            <div class="tile" onclick="getType(event, 'sand')">Sand</div>
+            <div class="tile active" onclick="getType(event, 'none')">None</div>
             <div class="tile" onclick="download()">Save Map</div>
             <div class="tile"><a  href="" id="Dl">Download Map</a></div>
         </div>
